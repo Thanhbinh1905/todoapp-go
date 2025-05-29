@@ -82,7 +82,7 @@ curl -X PUT http://localhost:8080/todos/id=1 \
 Delete todo:
 
 ```bash
-curl -X DELETE http://localhost:8080/todos/1
+curl -X DELETE http://localhost:8080/todos/id=1
 ```
 
 
