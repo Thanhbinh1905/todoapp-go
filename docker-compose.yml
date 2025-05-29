@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: pg-container
+    environment:
+      POSTGRES_USER: binh
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: todos
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  
+  api:
+    build: .
+    container_name: todo-api
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: binh
+      DB_PASSWORD: secret
+      DB_NAME: todos
+      DB_PORT: 5432
+
+volumes:
+  pgdata:
