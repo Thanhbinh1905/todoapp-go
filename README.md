@@ -50,8 +50,8 @@ docker-compose up -d --build
 | ------ | ------------- | ----------------- |
 | GET    | `/todos`      | List all todos    |
 | POST   | `/todos`      | Create a new todo |
-| PUT    | `/todos/{id}` | Update todo by ID |
-| DELETE | `/todos/{id}` | Delete todo by ID |
+| PUT    | `/todos/id={id}` | Update todo by ID |
+| DELETE | `/todos/id={id}` | Delete todo by ID |
 
 ---
 
@@ -74,7 +74,7 @@ curl http://localhost:8080/todos
 Update todo:
 
 ```bash
-curl -X PUT http://localhost:8080/todos/1 \
+curl -X PUT http://localhost:8080/todos/id=1 \
   -H "Content-Type: application/json" \
   -d '{"title":"Learn Go Fast", "completed":true}'
 ```
